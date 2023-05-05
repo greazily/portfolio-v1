@@ -5,11 +5,11 @@
     --main-border-width: 2.4px;
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
+/* @media screen and (prefers-reduced-motion: reduce) {
 	html {
 		scroll-behavior: auto;
 	}
-}
+} */
 
 html,
 body {
@@ -19,7 +19,7 @@ body {
     overscroll-behavior: none;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
 }
 
 ::-webkit-scrollbar{
