@@ -38,21 +38,21 @@ sections.forEach(section => {section.addEventListener("click", (e)=>{
 
             
 
-            // gsap.to(container, {
-            //     xPercent: scrollLength * ts.progress,
-            //     duration: .8,
-            //     delay: .8,
-            //     ease: "power2.inOut",
-            //     onComplete: resetScroll
-            // })
+            gsap.to(container, {
+                xPercent: scrollLength * ts.progress,
+                duration: .8,
+                delay: .8,
+                ease: "power2.inOut",
+                onComplete: resetScroll
+            })
 
-            // function resetScroll() {
+            function resetScroll() {
                 ts.scroll(scrolledDistance);
                 ts.enable(false);
-                // ts.update();
+                ts.getTween().progress(1);
                 
                 
-            // }
+            }
 
 
             
