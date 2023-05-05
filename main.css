@@ -1,0 +1,92 @@
+:root {
+    --main-bg-color: #FDFDFD;
+    --main-accent-color: #0000F3;
+    --main-text-color: #19191A;
+    --main-border-width: 2.4px;
+}
+
+
+
+html,
+body {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    overscroll-behavior: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+::-webkit-scrollbar{
+    display: none;
+    
+}
+
+.layout-rows {
+    display: flex;
+    flex-flow: column;
+}
+
+.header-grid {
+    flex: 0 0 auto;
+    width: 100vw;
+    height: 50vh;
+    background-color: var(--main-accent-color);
+    color: var(--main-bg-color);
+    transition: height 800ms ease-in-out;
+}
+
+.header-grid.active {
+    height: 10vh;
+}
+
+
+.container {
+    flex: 1 1 auto;
+    height: 50vh;
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: fit-content;
+    max-width: -moz-fit-content;
+}
+
+
+.panel {
+    flex-shrink: 0;
+    background-color: aquamarine;
+    width: 25vw;
+    height: 100%;
+    box-sizing: border-box;
+    border: 2px solid var(--main-text-color);
+    border-right: none;
+    transition: width 800ms ease-in-out;
+    overflow: hidden;
+}
+
+.panel.active {
+    width: 100vw;
+    overflow: scroll;
+}
+
+.panel.active > .title {
+    position: fixed;
+    width: inherit;
+}
+
+.cover-image {
+    height: 100%;
+    object-fit: cover;
+}
+
+.panel > img {
+ 
+    width: 100%;
+}
+
+.title {
+
+    box-sizing: content-box;
+    background-color: var(--main-bg-color);
+    border-bottom: 2px solid var(--main-text-color);    
+}
+
