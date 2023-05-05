@@ -18,7 +18,7 @@ let st = gsap.to(container, {
     pin: true,
     scrub: 1,
     markers: true,
-    end: ()=> sections[0].offsetWidth * sections.length,
+    end: ()=> sections[0].offsetWidth * (sections.length - 4),
     invalidateOnRefresh: true,
     onUpdate: self => console.log(self.progress)
   }
@@ -26,16 +26,14 @@ let st = gsap.to(container, {
 
 sections.forEach(section => {section.addEventListener("click", (e)=>{
 
-    let ts = st.scrollTrigger;
+    let ts = st.scrollTrigger,
+        title = section.querySelector(".title");
 
         if(section.classList.contains("active")){
             // insert if statement to handle section index 0
-            section.scrollTo({top: 0, behavior: 'smooth'});
-            // $(section).animate({scrollTop: 0}, 500);
-            // section.scrollTop = 0;
             section.classList.remove("active");
             headerGrid.classList.remove("active");
-
+            section.scrollTo({top: 0, behavior: 'smooth'});
             
 
             gsap.to(container, {
@@ -50,6 +48,8 @@ sections.forEach(section => {section.addEventListener("click", (e)=>{
                 ts.scroll(scrolledDistance);
                 ts.enable(false);
                 ts.getTween().progress(1);
+                title.classList.remove("active");
+                
                 
                 
             }
@@ -73,6 +73,7 @@ sections.forEach(section => {section.addEventListener("click", (e)=>{
             function activate() {
                 section.classList.add("active");
                 headerGrid.classList.add("active");
+                title.classList.add("active");
                 ts.disable(false);
                 scrolledDistance = ts.scroll();
 

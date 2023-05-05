@@ -19,7 +19,7 @@ body {
     overscroll-behavior: none;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    /* scroll-behavior: smooth; */
+    
 }
 
 ::-webkit-scrollbar{
@@ -56,7 +56,7 @@ body {
 }
 
 
-.panel {
+.panel{
     flex-shrink: 0;
     background-color: aquamarine;
     width: 25vw;
@@ -66,6 +66,7 @@ body {
     border-right: none;
     transition: width 800ms ease-in-out;
     overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 .panel.active {
@@ -73,10 +74,10 @@ body {
     overflow: scroll;
 }
 
-.panel.active > .title {
+/* .panel.active > .title {
     position: fixed;
     width: inherit;
-}
+} */
 
 .cover-image {
     height: 100%;
@@ -89,9 +90,26 @@ body {
 }
 
 .title {
-
+    height: 20px;
     box-sizing: content-box;
     background-color: var(--main-bg-color);
-    border-bottom: 2px solid var(--main-text-color);    
+    border-bottom: 2px solid var(--main-text-color);
+    transition: height 800ms ease-in-out;
 }
 
+.title.active {
+    position: fixed;
+    width: inherit;
+}
+
+title.expand {
+    height: 200px;
+}
+
+.title.active span:nth-child(1) {
+    background-color: red;
+}
+
+span {
+    display: block;
+}
