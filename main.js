@@ -27,37 +27,49 @@ let st = gsap.to(container, {
 sections.forEach(section => {section.addEventListener("click", (e)=>{
 
     let ts = st.scrollTrigger,
-        title = section.querySelector(".title");
+        title = section.querySelector(".title"),
+        heading = section.querySelector(".heading");
 
         if(section.classList.contains("active")){
             // insert if statement to handle section index 0
-            section.classList.remove("active");
-            headerGrid.classList.remove("active");
+            title.classList.remove("expand");
             section.scrollTo({top: 0, behavior: 'smooth'});
+            setTimeout(function() {
+                heading.classList.remove("active");
+                section.classList.remove("active");
+                headerGrid.classList.remove("active");
+
+            if(ts.progress.toFixed(3) > 0 || sections.indexOf(section) > 0) {
+                gsap.to(container, {
+                    xPercent: scrollLength * ts.progress,
+                    duration: .8,
+                    delay: .8,
+                    ease: "power2.inOut",
+                    onComplete: resetScroll
+            })} else {
+                setTimeout(resetScroll, 800);
+                
+            }
             
 
-            gsap.to(container, {
-                xPercent: scrollLength * ts.progress,
-                duration: .8,
-                delay: .8,
-                ease: "power2.inOut",
-                onComplete: resetScroll
-            })
+            }, 400);
 
             function resetScroll() {
                 ts.scroll(scrolledDistance);
                 ts.enable(false);
                 ts.getTween().progress(1);
                 title.classList.remove("active");
-                
-                
-                
-            }
-
+            
+            
+            
+        }
+            
 
             
             
         } else {
+
+            let delay;
 
             if(ts.progress.toFixed(3) > 0 || sections.indexOf(section) > 0) {
                 gsap.to(container, {
@@ -65,17 +77,23 @@ sections.forEach(section => {section.addEventListener("click", (e)=>{
                     duration: .8,
                     ease: "power2.inOut",
                     onComplete: activate
-                })
+                });
             } else {
                 activate();
+                
             }
 
             function activate() {
                 section.classList.add("active");
                 headerGrid.classList.add("active");
                 title.classList.add("active");
+                heading.classList.add("active");
                 ts.disable(false);
                 scrolledDistance = ts.scroll();
+                setTimeout(function(){
+                    title.classList.add("expand");
+                }, 800);
+                
 
             }
             

@@ -91,23 +91,25 @@ body {
 
 .title {
     height: 20px;
+    overflow: hidden;
     box-sizing: content-box;
     background-color: var(--main-bg-color);
     border-bottom: 2px solid var(--main-text-color);
-    transition: height 800ms ease-in-out;
+    transition: height 400ms ease-in-out;
 }
 
 .title.active {
     position: fixed;
     width: inherit;
+    border-right: 2px solid var(--main-text-color);
 }
 
-title.expand {
+.title.active.expand {
     height: 200px;
 }
 
-.title.active span:nth-child(1) {
-    background-color: red;
+.heading.active {
+    border-bottom: 2px solid var(--main-text-color);
 }
 
 span {
