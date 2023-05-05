@@ -49,7 +49,7 @@ sections.forEach(section => {section.addEventListener("click", (e)=>{
             // function resetScroll() {
                 ts.scroll(scrolledDistance);
                 ts.enable(false);
-                ts.update();
+                // ts.update();
                 
                 
             // }
