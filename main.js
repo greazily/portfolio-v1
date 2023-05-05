@@ -33,11 +33,12 @@ sections.forEach(section => {section.addEventListener("click", (e)=>{
         if(section.classList.contains("active")){
             // insert if statement to handle section index 0
             title.classList.remove("expand");
-            section.scrollTo({top: 0, behavior: 'smooth'});
+            
             setTimeout(function() {
                 heading.classList.remove("active");
                 section.classList.remove("active");
                 headerGrid.classList.remove("active");
+                section.scrollTo({top: 0, behavior: 'smooth'});
 
             if(ts.progress.toFixed(3) > 0 || sections.indexOf(section) > 0) {
                 gsap.to(container, {
