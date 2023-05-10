@@ -1,0 +1,14 @@
+.scroller {
+    position: absolute;
+    top: 50vh;
+    left: 0;
+    width: 50vw;
+    height: 500vw;
+}
+
+.horizontal {
+    height: 100%;
+    width: 500%;
+    background: rgb(34,193,195);
+    background: linear-gradient(90deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);;
+}
